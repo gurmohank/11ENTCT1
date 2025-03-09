@@ -1,43 +1,75 @@
 body{
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     }
 
+/*dtb_home page*/
+    /*background colour for nav bar*/
+    .navbar{
+        background-color: #000000;
+        padding: 15px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        }
 
-/*background colour for nav bar*/
-.navbar{
-    background-color: #3a5a40;
-    padding: 15px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    /* style for links inside the nav bar */
+    .navbar a {
+        position: relative;
+        padding: 10px 20px;
+        color: #f2f2f2;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        opacity: 0.8;
+        transition: all 0.3s;
+        }
+    
+    /* change color of links on hover */
+    .navbar a:hover {
+        background-color: black;
+        color: #f2f2f2;
+        font-size: 16px;
+        }
+    
+    /* color for the active/current link */
+    .navbar a.active {
+        background-color: black;
+        color: #f2f2f2;
+        }
+
+    /*cover page photo*/
+    .hcf{
+        max-width: 100%;
+        height: auto;
+        filter: blur(0.1px);
+        opacity: 0.4;
+        }
+
+    .DTB_cover{
+        text-align: center;
+        position: relative;
+        background-color: rgb(44, 41, 41)
+        }
+
+    @font-face{
+        font-family: "Oswald";
+        src: url(Oswald-Regular.ttf) format('truetype');
     }
 
-/* style for links inside the nav bar */
-.navbar a {
-    position: relative;
-    padding: 10px 20px;
-    color: #f2f2f2;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-    opacity: 0.8;
-    transition: all 0.3s;
+    .intro{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        color: #d5ba68;
+        font-family: "Oswald";
     }
-  
-/* change color of links on hover */
-.navbar a:hover {
-    background-color: black;
-    color: #f2f2f2;
-    font-size: 30px;
-    }
-  
-/* color for the active/current link */
-.navbar a.active {
-    background-color: black;
-    color: #f2f2f2;
+
+    @media screen and (min-width: 601px){
+        
     }
 
 
