@@ -4,6 +4,14 @@ body{
     }
 
 /*dtb_home page*/
+    .logo {
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 1000;
+    }
     /*background colour for nav bar*/
     .navbar{
         background-color: #000000;
@@ -13,7 +21,7 @@ body{
         justify-content: center;
         align-items: center;
         position: relative;
-        }
+    }
 
     /* style for links inside the nav bar */
     .navbar a {
@@ -25,14 +33,14 @@ body{
         font-size: 12px;
         opacity: 0.8;
         transition: all 0.3s;
-        }
-    
+    }
+
     /* change color of links on hover */
     .navbar a:hover {
         background-color: black;
         color: #f2f2f2;
         }
-    
+
     /* color for the active/current link */
     .navbar a.active {
         background-color: black;
@@ -67,38 +75,111 @@ body{
         font-family: "Oswald";
     }
 
-    @media screen and (max-width: 1170px) {
-        body {
-            min-width: 100%; /* Allow full scaling for smaller screens */
-            margin: 0;       /* Remove margins for better fit */
-        }
-    
-        .navbar {
-            flex-direction: column; /* Stack links vertically */
-            align-items: flex-start; /* Align links to the left */
-        }
-    
-        .intro h1 {
-            font-size: 24px; /* Adjust heading size for smaller screens */
-        }
-    
-        .intro p {
-            font-size: 14px; /* Adjust text size for readability */
-        }
+    .burger {
+        position: relative;
+        width: 40px;
+        height: 30px;
+        background: transparent;
+        cursor: pointer;
+        display: none; /* Initially hidden */
     }
 
-form {
-    max-width: 300px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-input, button {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    display: block;
-}
+    .burger input {
+        display: none;
+    }
 
+    .burger span {
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #f2f2f2;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
 
+    .burger span:nth-of-type(1) {
+        top: 0px;
+        transform-origin: left center;
+    }
+
+    .burger span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: left center;
+    }
+
+    .burger span:nth-of-type(3) {
+        top: 100%;
+        transform-origin: left center;
+        transform: translateY(-100%);
+    }
+
+    .burger input:checked ~ span:nth-of-type(1) {
+        transform: rotate(45deg);
+        top: 0px;
+        left: 5px;
+    }
+
+    .burger input:checked ~ span:nth-of-type(2) {
+        width: 0%;
+        opacity: 0;
+    }
+
+    .burger input:checked ~ span:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 28px;
+        left: 5px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li a {
+        color: #f2f2f2;
+        text-decoration: none;
+        font-size: 12px;
+        opacity: 0.8;
+        transition: all 0.3s;
+        padding: 10px 20px;
+    }
+
+    .nav-links li a:hover {
+        background-color: black;
+        color: #f2f2f2;
+    }
+
+    .nav-links li a.active {
+        background-color: black;
+        color: #f2f2f2;
+    }
+
+    /* styles for when viewport width is 1170 or less */
+    @media screen and (max-width: 1170px) {
+        body {
+            min-width: 100%; /* allow full scaling for smaller screens */
+            margin: 0;     /* remove margins for better fit */
+        }
+
+        .navbar {
+            flex-direction: column; /* ensures logo/name and menu are on same row */
+            justify-content: space-between; /* pushes menu to other side */
+            align-items: center; /* align items vertically in the center */
+        }
+
+        .intro h1 {
+            font-size: 24px; /* adjust heading size for smaller screens */
+        }
+
+        .intro p {
+            font-size: 14px; /* adjust text size for readability */
+        }
+    }

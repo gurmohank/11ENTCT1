@@ -8,21 +8,28 @@
 </head>
 <body>
 
-    <div class="burger_menu">
-      
-    </div>
-
-    <div class="navbar">
-        <a class="active" href="dtb_home.html">Home</a>
-        <a href="about_us.html">About Us</a>
-        <a href="our_highlights.html">Our Highlights</a>
-        <a href="classes.html">Classes</a>
-        <a href="registrations.html">Registrations</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="events.html">Events</a>
-        <a href="other_services.html">Other Services</a>
-        <a href="log_in.html">Log In</a>
-    </div>
+  <div class="navbar">
+    <a class="logo" href="dtb_home.html">
+      <img src="dtb_logo.png" alt="Down To Bhangra Logo">
+    </a>
+      <label class="burger" for="burger">
+        <input type="checkbox" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <ul class="nav-links">
+        <li><a class="active" href="dtb_home.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="our_highlights.html">Our Highlights</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="registrations.html">Registrations</a></li>
+        <li><a href="contact_us.html">Contact Us</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="other_services.html">Other Services</a></li>
+        <li><a href="log_in.html">Log In</a></li>
+    </ul>
+  </div>
 
   <div class="DTB_cover">
     <img class="hcf" src="home_cover_photo.jpg">
@@ -33,6 +40,14 @@
   </div>
 
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.843385760487!2d150.8851071!3d-33.9965563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12eb133882d3d1%3A0x55cb04a93645d418!2s2%20Harold%20St%2C%20Macquarie%20Fields%20NSW%202564!5e0!3m2!1sen!2sau!4v1741831952683!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <script>
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });  </script>
 
 </body>
 </html>
