@@ -1,22 +1,284 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Down To Bhangra</title>
 <link rel="stylesheet" href="dtb_style.css">
 </head>
+
+<style>
+h2{
+  font-family: "Lato";
+  font-size: 18px;
+  text-align: center;
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+.layout {
+    margin-top: 7%;
+    background-color: #ffcc00;
+    color: black;
+    font-family: "Lato";
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 20px;  
+    gap: 20px; 
+  }
+  
+  .layout img {
+    width: 50%;  
+    max-height: 400px; 
+    border: none;
+  }
+  
+  .layout p {
+    width: 45%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    padding-right: 30px;
+  }
+
+  .layout2 {
+    background-color: fff8e7;
+    color: black;
+    font-family: "Lato";
+    display: flex;
+    justify-content: space-between;  /* side-by-side layout */
+    align-items: center;  
+    padding: 20px;  
+    gap: 20px;  
+  }
+  
+  .layout2 img {
+    width: 50%;  
+    max-height: 400px;  
+    border: none;
+  }
+  
+  .layout2 p {
+    width: 45%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    padding-left: 28px;
+  }
+
+  .layout3 {
+    background-color: #ffcc00;
+    color: black;
+    font-family: "Lato";
+    display: flex;
+    justify-content: space-between;  
+    align-items: center; 
+    padding: 20px;  
+    gap: 20px;  
+  }
+  
+  .layout3 video {
+    width: 50%;  
+    max-height: 400px;  
+    border: none;
+  }
+  
+  .layout3 p {
+    width: 45%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    padding-right: 30px;
+  }
+
+  .logo {
+    top: 0; 
+    position: absolute;
+    margin-top: 0.5%;
+    }
+
+.logo img {
+    width: 53px;
+    height: 53px;
+    }
+
+@media screen and (max-width: 1170px) {
+    .logo img{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+</style>
+
 <body>
 
-    <div class="navbar">
-        <a href="dtb_home.html">Home</a>
-        <a href="about_us.html">About Us</a>
-        <a href="our_highlights.html">Our Highlights</a>
-        <a href="classes.html">Classes</a>
-        <a href="registrations.html">Registrations</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a class="active" href="events.html">Events</a>
-        <a href="other_services.html">Other Services</a>
-        <a href="log_in.html">Log In</a>
+  <div class="nav">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <u1>
+      <li><a class="active" href="dtb_home.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="contact_us.html">Contact Us</a></li>
+      <li><a href="our_highlights.html">Our Highlights</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="registrations.html">Registrations</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="other_services.html">Other Services</a></li>
+      </u1>
+    </div>
+  </div>
+
+  <a class="logo" href="dtb_home.html">
+    <img src="media/dtb_logo.png" alt="Down To Bhangra Logo">
+  </a>
+
+  <h1 class="e">Events</h1>
+
+  <h2>Down to Bhangra has been behind some incredible events that
+     bring our community together. From Langar Sewa to the Kids and
+      Ladies Mixer Party and Annual Function, we're all about 
+      celebrating culture and making memories.
+  </h2>
+
+  <div class="layout">
+    <img src="media/langar_sewa.png">
+    <p>At Down to Bhangra, we proudly host an annual Langar Sewa 
+      as part of our commitment to community service and staying in touch with our roots. 
+      Each year, our team comes together to prepare and serve free meals, 
+      fostering a spirit of unity and giving back.</p>
+  </div>
+
+  <div class="layout2">
+    <p>Each year, Down to Bhangra brings the community together through 
+      our Ladies and Kids Mixer Night, a joyful event filled with dance, laughter, 
+      and vibrant celebration. It's our way of creating a fun, welcoming space where 
+      families can connect, unwind, and make unforgettable memories.</p>
+      <img src="media/mixer.png">
+    </div>
+
+  <div class="layout3">
+    <video src="media/annual_func.mp4" controls autoplay></video>
+    <p>Our Annual Function, Back to Roots, is a vibrant celebration of culture, 
+      talent, and community spirit. It brings together all our teams for one 
+      unforgettable night of performances, showcasing months of hard work, 
+      passion, and the joy of Bhangra in its truest form.</p>
+  </div>
+
+
+  <div class="clipbox"> 
+    <p>&nbsp;
+      <span id="copyLocation" style="display: none; color: black;" class="clipboard">
+            Copied DTB location to clipboard
+    </span>
+
+    <span id="copyNumber" style="display: none; color: black;" class="clipboard">
+      Copied DTB number to clipboard
+    </span>
+
+    <span id="copyEmail" style="display: none; color: black;" class="clipboard">
+      Copied DTB email to clipboard
+    </span>
+
+    </p>
+  </div>
+
+  <footer>
+    <div class="four_col">
+      <div>
+        <button type="button" class="location_button" onclick="copyToClipboard('locationText', 'copyLocation')">
+          <img src="media/location-sharp.svg" width="24" height="24">
+        </button>
+      
+        <p id="locationText" class="location_button_text">
+          2 Harold St,<br>Macquarie Fields NSW 2564
+        </p>        
       </div>
 
+      <div>
+        <button type="button" class="call_button" onclick="copyToClipboard('phoneText', 'copyNumber')">
+          <img src="media/call.svg"width="24" height="24">
+        </button>
+        <p id="phoneText"class="call_button_text">
+          04044137621
+        </p>
+      </div>
+
+      <div>
+        <button type="button" class="email_button" onclick="copyToClipboard('emailText', 'copyEmail')">
+          <img src="media/mail.svg"width="24" height="24">
+        </button> 
+        <p id="emailText"class="email_button_text">
+          downtobhangra1@gmail.com
+        </p>
+      </div>
+
+      <div>
+        <a href="https://www.instagram.com/downtobhangra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="insta">
+          <img src="media/logo-instagram.svg" width="24" height="24" alt="Instagram">
+        </a>
+
+        <a href="https://www.youtube.com/@Downtobhangra" target="_blank" class="youtube">
+          <img src="media/logo-youtube.svg" width="24" height="24" alt="YouTube">
+        </a>
+
+        <a href="https://www.facebook.com/downtobhangra/" target="_blank" class="facebook">
+          <img src="media/logo-facebook.svg" width="24" height="24" alt="Facebook">
+        </a>
+      </div>
+
+
+    </div>
+  <footer>
+
+  <footer class="copyright">
+    <p>Copyright © 2025 Down to Bhangra. All Rights Reserved. </p>
+  </footer>
 </body>
+
+<!-- JS for the hamburger menu <-->
+<script>
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  document.body.classList.add("overlay-open");
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.body.classList.remove("overlay-open");
+}
+</script>
+
+<!-- copy to clipboard (footer) -->
+<script>
+  function copyToClipboard(textId, msgId) {
+    const text = document.getElementById(textId).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById(msgId);
+      msg.style.display = "inline";
+
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 1500);
+    }).catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+  }
+</script>
+
 </html>
+
+

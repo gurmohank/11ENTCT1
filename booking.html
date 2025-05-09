@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Down To Bhangra</title>
+<link rel="stylesheet" href="dtb_style.css">
+</head>
+
+<style>
+  h2{
+    font-family: "Lato";
+    font-size: 20px;
+    margin-left: 9%;
+    margin-right: 9%;
+    text-align: center;
+  }
+
+  .contactform-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff8e7;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "Lato";
+  }
+
+  label {
+    font-size: 16px;
+    display: block;
+    color: #333;
+  }
+
+
+  .name-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .name-row input {
+    flex: 1 1 45%;
+    min-width: 120px;
+    max-width: 45%;
+  }
+
+  input, button {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  input:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background-color: #fffef9;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+  }
+
+  button {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #e6b800;
+    transform: translateY(-3px);  /* Makes button appear lifted */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  button:active {
+    transform: translateY(1px);  /* Slight press effect when clicked */
+  }
+
+  .thank-you {
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff8e7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
+    font-family: "Oswald";
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  select, input[type="text"], input[type="submit"] {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  select:focus, input[type="text"]:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background-color: #fffef9;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+  }
+
+  input[type="submit"] {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #e6b800;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  input[type="submit"]:active {
+    transform: translateY(1px);
+  }
+
+  .field1{
+    margin-bottom: 23px;
+  }
+
+  .logo {
+    top: 0; 
+    position: absolute;
+    margin-top: 0.5%;
+    }
+
+.logo img {
+    width: 53px;
+    height: 53px;
+    }
+
+@media screen and (max-width: 1170px) {
+    .logo img{
+        width: 45px;
+        height: 45px;
+    }
+}
+  
+</style>
+
+<body>
+
+  <div class="nav">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <u1>
+      <li><a class="active" href="dtb_home.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="contact_us.html">Contact Us</a></li>
+      <li><a href="our_highlights.html">Our Highlights</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="registrations.html">Registrations</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="other_services.html">Other Services</a></li>
+      </u1>
+    </div>
+  </div>
+
+  <a class="logo" href="dtb_home.html">
+    <img src="media/dtb_logo.png" alt="Down To Bhangra Logo">
+  </a>
+
+  <h1 class="b">Booking</h1>
+
+  <h2>Please select the session you'd like to book a slot for. You can book for up to 4 members in one submission, with each member requiring their own unique membership number from registration. For groups of more than 4, kindly make multiple bookings. When entering membership numbers into the form below, please make sure to separate them by commas.</h2>
+
+  <div class="contactform-container">
+    <form id="myForm">
+      <label for="category">Session:</label>
+      <select name="category" id="category" class="field1">
+        <option value="" disabled selected>Select a session</option>
+        <optgroup label="Kids">
+          <option value="a" id="book_kids">Beginner Bhangra - Still Charming - 16/05, 5pm to 6:30pm</option>
+        </optgroup>
+        <optgroup label="Bhangra">
+          <option value="b" id="book_bhangra">Mens Intermediate - Mombattiye - 13/05, 6pm to 7pm</option>
+        </optgroup>
+        <optgroup label="Giddha">
+          <option value="c" id="book_giddha">Intermediate - Ryde or Die - 23/05, 4pm to 5:30pm</option>
+        </optgroup>
+      </select>
+
+      <label for="mem_numbers">Enter 6 digit membership numbers (separate by commas):</label>
+      <input type="text" id="mem_numbers" name="mem_numbers" placeholder="e.g., 123456, 678901, 445566" required>
+
+      <input type="submit" value="Book">
+    </form>
+
+    <div id="thankYouMsg" class="thank-you" style="display:none;">
+      <p>Thank you for booking a session with us. Make sure to check your email for confirmation and instructions.</p>
+    </div>
+  </div>
+
+
+<div id="thankYouMsg" class="thank-you" style="display:none;">
+  <p>Thank you for booking a session with us. Make sure to check your email for confirmation and instructions.</p>
+</div>
+
+<div class="clipbox"> 
+  <p>&nbsp;
+    <span id="copyLocation" style="display: none; color: black;" class="clipboard">
+          Copied DTB location to clipboard
+  </span>
+
+  <span id="copyNumber" style="display: none; color: black;" class="clipboard">
+    Copied DTB number to clipboard
+  </span>
+
+  <span id="copyEmail" style="display: none; color: black;" class="clipboard">
+    Copied DTB email to clipboard
+  </span>
+
+  </p>
+</div>
+
+<footer>
+  <div class="four_col">
+    <div>
+      <button type="button" class="location_button" onclick="copyToClipboard('locationText', 'copyLocation')">
+        <img src="media/location-sharp.svg" width="24" height="24">
+      </button>
+    
+      <p id="locationText" class="location_button_text">
+        2 Harold St,<br>Macquarie Fields NSW 2564
+      </p>        
+    </div>
+
+    <div>
+      <button type="button" class="call_button" onclick="copyToClipboard('phoneText', 'copyNumber')">
+        <img src="media/call.svg"width="24" height="24">
+      </button>
+      <p id="phoneText"class="call_button_text">
+        04044137621
+      </p>
+    </div>
+
+    <div>
+      <button type="button" class="email_button" onclick="copyToClipboard('emailText', 'copyEmail')">
+        <img src="media/mail.svg"width="24" height="24">
+      </button> 
+      <p id="emailText"class="email_button_text">
+        downtobhangra1@gmail.com
+      </p>
+    </div>
+
+    <div>
+      <a href="https://www.instagram.com/downtobhangra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="insta">
+        <img src="media/logo-instagram.svg" width="24" height="24" alt="Instagram">
+      </a>
+
+      <a href="https://www.youtube.com/@Downtobhangra" target="_blank" class="youtube">
+        <img src="media/logo-youtube.svg" width="24" height="24" alt="YouTube">
+      </a>
+
+      <a href="https://www.facebook.com/downtobhangra/" target="_blank" class="facebook">
+        <img src="media/logo-facebook.svg" width="24" height="24" alt="Facebook">
+      </a>
+    </div>
+
+
+  </div>
+<footer>
+
+<footer class="copyright">
+  <p>Copyright © 2025 Down to Bhangra. All Rights Reserved. </p>
+</footer>
+  
+
+</body>
+
+<!-- JS for the hamburger menu <-->
+<script>
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  document.body.classList.add("overlay-open");
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.body.classList.remove("overlay-open");
+}
+</script>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the default form submission
+
+    let category = document.getElementById("category").value;
+    let memNumbers = document.getElementById("mem_numbers").value;
+
+    // bheck if all fields are filled and that the membership numbers are separated by commas
+    if (category && memNumbers) {
+        let memNumbersArray = memNumbers.split(',').map(num => num.trim());
+        if (memNumbersArray.length <= 4) {
+            // display the "Thank You" message
+            document.getElementById("thankYouMsg").style.display = "block";
+
+            // reset the form fields after submission
+            document.getElementById("myForm").reset();
+
+            // hide the "Thank You" message
+            setTimeout(function() {
+                document.getElementById("thankYouMsg").style.display = "none";
+            }, 4500);
+        } else {
+            // If there are more than 4 membership numbers, show an error alert
+            alert("You can only book for up to 4 members. Please try again.");
+        }
+    } else {
+        // if any field is empty, show error alert
+        alert("Please select a session and enter membership numbers.");
+    }
+});
+
+</script>
+
+<!-- admin communication -->
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const ids = ["book_kids", "book_bhangra", "book_giddha"];
+    for (let i = 0; i < ids.length; i++) {
+      const val = localStorage.getItem("option-" + (i + 1));
+      if (val) {
+        const option = document.getElementById(ids[i]);
+        option.textContent = val;
+        option.value = val;
+      }
+    }
+  });
+</script>
+
+<!-- copy to clipboard (footer) -->
+<script>
+  function copyToClipboard(textId, msgId) {
+    const text = document.getElementById(textId).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById(msgId);
+      msg.style.display = "inline";
+
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 1500);
+    }).catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+  }
+</script>
+
+</html>

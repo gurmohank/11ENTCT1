@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin Dashboard</title>
+  <style>
+    /* Font Imports */
+    @font-face {
+      font-family: "Oswald";
+      src: url(media/Oswald-Regular.ttf) format('truetype');
+    }
+  
+    @font-face {
+      font-family: "Lato";
+      src: url(media/Lato-Regular.ttf) format('truetype');
+    }
+  
+    @font-face {
+      font-family: "Lato-Bold";
+      src: url(media/Lato-Bold.ttf) format('truetype');
+    }
+  
+    /* Base Styles */
+    body {
+      font-family: "Lato";
+      padding: 20px;
+      background-color: #f8f8f8;
+      margin: 0;
+    }
+  
+    h2 {
+      color: #333;
+      font-family: "Oswald";
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .instructions {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 15px;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+  
+    textarea,
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      font-family: "Lato", sans-serif;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+  
+    textarea {
+      resize: none;
+      height: 60px;
+    }
+  
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ffcc00;
+      font-family: "Lato-Bold", sans-serif;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 10px;
+    }
+  
+    button:hover {
+      background-color: black;
+      color: white;
+    }
+  
+    .space {
+      height: 20px;
+    }
+  
+    .textarea-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+  
+    .textarea-pair textarea {
+      flex: 1 1 100%;
+      min-height: 60px;
+    }
+  
+    /* For tablets & desktops: side-by-side */
+    @media (min-width: 768px) {
+      .textarea-pair textarea {
+        flex: 1 1 48%;
+      }
+    }
+  
+    /* For phones: stack everything neatly */
+    @media (max-width: 767px) {
+      .instructions {
+        font-size: 14px;
+      }
+  
+      h2 {
+        font-size: 18px;
+      }
+  
+      button {
+        width: 100%;
+      }
+  
+      input[type="text"],
+      textarea {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+
+  <h2 class="instructions">To change any information, input it into the respective field and press the respective update button. To revert back to default, remove updated information from field box and press the respective update button.</h2>
+
+  <h2>Update Class for the Week</h2>
+
+  <p>Kids</p>
+  <div class="textarea-pair">
+    <textarea id="what_class_kids" rows="3" placeholder="Class Level and Song, e.g., Level - Song (Artist)"></textarea>
+    <textarea id="when_class_kids" rows="3" placeholder="Timing, e.g., Day Date Month, XX to XX"></textarea>
+  </div>
+
+  <p>Bhangra</p>
+  <div class="textarea-pair">
+    <textarea id="what_class_bhangra" rows="3" placeholder="Class Level and Song, e.g., Level - Song (Artist)"></textarea>
+    <textarea id="when_class_bhangra" rows="3" placeholder="Timing, e.g., Day Date Month, XX to XX"></textarea>
+  </div>
+
+  <p>Giddha</p>
+  <div class="textarea-pair">
+    <textarea id="what_class_giddha" rows="3" placeholder="Class Level and Song, e.g., Level - Song (Artist)"></textarea>
+    <textarea id="when_class_giddha" rows="3" placeholder="Timing, e.g., Day Date Month, XX to XX"></textarea>
+  </div>
+
+  <button onclick="saveParagraphs()">Save Upcoming Classes</button>
+
+  <div class="space">&nbsp;</div>
+
+  <h2>Update Booking Options</h2>
+  <input type="text" id="edit-option-1" placeholder="Kids Session, e.g., Class Level - Song - DD/MM, XX to XX"><br>
+  <input type="text" id="edit-option-2" placeholder="Bhangra Session, e.g., Class Level - Song - DD/MM, XX to XX"><br>
+  <input type="text" id="edit-option-3" placeholder="Giddha Session, e.g., Class Level - Song - DD/MM, XX to XX"><br>
+  <button onclick="saveDropdown()">Save Booking Options</button>
+
+  <script>
+    // on page load, check if anything's saved and pop it back into the fields
+    window.addEventListener("DOMContentLoaded", function () {
+      const ids = [
+        "what_class_kids",
+        "when_class_kids",
+        "what_class_bhangra",
+        "when_class_bhangra",
+        "what_class_giddha",
+        "when_class_giddha"
+      ];
+  
+      // loop through each id and set its value if found
+      ids.forEach(id => {
+        const saved = localStorage.getItem(id);
+        if (saved) {
+          const el = document.getElementById(id);
+          if (el) el.value = saved;
+        }
+      });
+  
+      // same thing for the dropdown inputs
+      for (let i = 1; i <= 3; i++) {
+        const opt = localStorage.getItem("option-" + i);
+        if (opt) {
+          document.getElementById("edit-option-" + i).value = opt;
+        }
+      }
+    });
+  
+    // saves all the textareas for the classes section
+    function saveParagraphs() {
+      const ids = [
+        "what_class_kids",
+        "when_class_kids",
+        "what_class_bhangra",
+        "when_class_bhangra",
+        "what_class_giddha",
+        "when_class_giddha"
+      ];
+  
+      ids.forEach(id => {
+        const val = document.getElementById(id).value;
+        localStorage.setItem(id, val); // store it locally
+      });
+  
+      alert("class info saved!");
+    }
+  
+    // saves the booking option fields
+    function saveDropdown() {
+      for (let i = 1; i <= 3; i++) {
+        const val = document.getElementById("edit-option-" + i).value;
+        localStorage.setItem("option-" + i, val); // also local storage
+      }
+  
+      alert("dropdown options saved!");
+    }
+  </script>
+  
+
+</body>
+</html>

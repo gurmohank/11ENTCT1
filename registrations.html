@@ -1,22 +1,301 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Down To Bhangra</title>
 <link rel="stylesheet" href="dtb_style.css">
 </head>
-<body>
 
-    <div class="navbar">
-        <a href="dtb_home.html">Home</a>
-        <a href="about_us.html">About Us</a>
-        <a href="our_highlights.html">Our Highlights</a>
-        <a href="classes.html">Classes</a>
-        <a class="active" href="registrations.html">Registrations</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="events.html">Events</a>
-        <a href="other_services.html">Other Services</a>
-        <a href="log_in.html">Log In</a>
+<style>
+
+h2{
+  font-family: "Lato";
+  text-align: center;
+  font-size: 18px;
+  margin-left: 9%;
+  margin-right: 9%;
+}
+  .contactform-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff8e7;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.name-row input {
+  flex: 1 1 45%;
+  min-width: 120px;
+  max-width: 45%;
+}
+
+input, button {
+  padding: 14px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+input:focus {
+  border-color: #ffcc00;
+  outline: none;
+  background-color: #fffef9;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+button {
+  background-color: #ffcc00;
+  color: black;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: #e6b800;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.thank-you {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff8e7;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  animation: fadeIn 1s ease;
+  font-family: "Oswald";
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+    top: 0; 
+    position: absolute;
+    margin-top: 0.5%;
+    }
+
+.logo img {
+    width: 53px;
+    height: 53px;
+    }
+
+@media screen and (max-width: 1170px) {
+    .logo img{
+        width: 45px;
+        height: 45px;
+    }
+}
+
+</style>
+
+<body>
+  <div class="nav">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <u1>
+      <li><a class="active" href="dtb_home.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="contact_us.html">Contact Us</a></li>
+      <li><a href="our_highlights.html">Our Highlights</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="registrations.html">Registrations</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="other_services.html">Other Services</a></li>
+      </u1>
+    </div>
+  </div>
+
+  <a class="logo" href="dtb_home.html">
+    <img src="media/dtb_logo.png" alt="Down To Bhangra Logo">
+  </a>
+
+  <h1 class="r">Registrations</h1>
+
+  <h2>Register here to become eligible to book a class. Please note that memberships run on a term-by-term basis. Once your registration is successful, you'll be able to proceed with booking.</h2>
+
+  <div class="contactform-container">
+    <form id="myForm">
+      <div class="name-row">
+        <input type="text" id="name" name="name" placeholder="First Name" required>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+      </div>
+  
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="text" id="message" name="message" placeholder="Phone Number (Optional)">
+  
+      <button type="submit">Register</button>
+    </form>
+    <div id="thankYouMsg" class="thank-you" style="display:none;">
+      <p>Thank you for registering. Make sure to check your email for further instructions. We hope to see you soon!</p>
+    </div>
+  </div>
+  
+
+  <div class="clipbox"> 
+    <p>&nbsp;
+      <span id="copyLocation" style="display: none; color: black;" class="clipboard">
+            Copied DTB location to clipboard
+    </span>
+
+    <span id="copyNumber" style="display: none; color: black;" class="clipboard">
+      Copied DTB number to clipboard
+    </span>
+
+    <span id="copyEmail" style="display: none; color: black;" class="clipboard">
+      Copied DTB email to clipboard
+    </span>
+
+    </p>
+  </div>
+
+  <footer>
+    <div class="four_col">
+      <div>
+        <button type="button" class="location_button" onclick="copyToClipboard('locationText', 'copyLocation')">
+          <img src="media/location-sharp.svg" width="24" height="24">
+        </button>
+      
+        <p id="locationText" class="location_button_text">
+          2 Harold St,<br>Macquarie Fields NSW 2564
+        </p>        
       </div>
 
+      <div>
+        <button type="button" class="call_button" onclick="copyToClipboard('phoneText', 'copyNumber')">
+          <img src="media/call.svg"width="24" height="24">
+        </button>
+        <p id="phoneText"class="call_button_text">
+          04044137621
+        </p>
+      </div>
+
+      <div>
+        <button type="button" class="email_button" onclick="copyToClipboard('emailText', 'copyEmail')">
+          <img src="media/mail.svg"width="24" height="24">
+        </button> 
+        <p id="emailText"class="email_button_text">
+          downtobhangra1@gmail.com
+        </p>
+      </div>
+
+      <div>
+        <a href="https://www.instagram.com/downtobhangra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="insta">
+          <img src="media/logo-instagram.svg" width="24" height="24" alt="Instagram">
+        </a>
+
+        <a href="https://www.youtube.com/@Downtobhangra" target="_blank" class="youtube">
+          <img src="media/logo-youtube.svg" width="24" height="24" alt="YouTube">
+        </a>
+
+        <a href="https://www.facebook.com/downtobhangra/" target="_blank" class="facebook">
+          <img src="media/logo-facebook.svg" width="24" height="24" alt="Facebook">
+        </a>
+      </div>
+
+
+    </div>
+  <footer>
+
+  <footer class="copyright">
+    <p>Copyright © 2025 Down to Bhangra. All Rights Reserved. </p>
+  </footer>
+
 </body>
+
+<!-- JS for the hamburger menu <-->
+<script>
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  document.body.classList.add("overlay-open");
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.body.classList.remove("overlay-open");
+}
+</script>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    let name = document.getElementById("name").value;
+    let lastName = document.getElementById("last_name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    // Check if all fields are filled
+        // Show the "Thank You" message
+        document.getElementById("thankYouMsg").style.display = "block";
+
+        // Optional: Reset the form fields after submission
+        document.getElementById("myForm").reset();
+
+        // Hide the "Thank You" message after 3 seconds (3000 milliseconds)
+        setTimeout(function() {
+            document.getElementById("thankYouMsg").style.display = "none";
+        }, 3000);
+    
+});
+</script>
+
+<!-- copy to clipboard (footer) -->
+<script>
+  function copyToClipboard(textId, msgId) {
+    const text = document.getElementById(textId).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById(msgId);
+      msg.style.display = "inline";
+
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 1500);
+    }).catch(err => {
+      console.error("Failed to copy: ", err);
+    });
+  }
+</script>
+
 </html>
